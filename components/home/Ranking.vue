@@ -5,13 +5,12 @@ const props = defineProps({
     required: true
   }
 })
-console.log(props.movies)
 </script>
 
 <template>
   <section class="py-8 bg-black">
     <div class="container mx-auto px-4">
-      <h2 class="text-white text-3xl md:text-4xl font-bold mb-8">
+      <h2 class="text-2xl text-white font-bold mb-6">
         Top 10 phim bộ xu hướng
       </h2>
       <UCarousel

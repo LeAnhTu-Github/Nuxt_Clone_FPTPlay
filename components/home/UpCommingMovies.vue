@@ -1,7 +1,7 @@
 <template>
     <section class="py-8 md:py-12 bg-black">
       <div class="container mx-auto px-2 sm:px-4 overflow-x-visible">
-        <h2 class="text-xl sm:text-2xl md:text-3xl text-white font-bold mb-6 md:mb-8">{{ title }}</h2>
+        <h2 class="text-2xl text-white font-bold mb-6">{{ title }}</h2>
         <UCarousel
           :items="movies"
           loop
@@ -39,7 +39,7 @@
                 <span v-if="item.country">• {{ item.country }}</span>
               </div>
               <button
-                class="flex lg:hidden items-center gap-2 bg-[#fe592a] hover:bg-[#ff4400] text-white font-bold px-5 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fe592a] transition mt-2 w-auto max-w-[30vw] sm:max-w-[40vw] md:max-w-[200px]"
+                class="flex lg:hidden items-center gap-2 bg-[#fe592a] hover:bg-[#ff4400] text-white font-bold px-5 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fe592a] transition mt-2 w-auto max-w-[40vw] sm:max-w-[40vw] md:max-w-[200px]"
                 aria-label="Đặt lịch"
                 tabindex="0"
               >

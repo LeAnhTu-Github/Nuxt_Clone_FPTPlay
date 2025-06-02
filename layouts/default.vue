@@ -2,7 +2,7 @@
   <div>
     <Header />
     <main>
-      <div class="container mx-auto pt-16 sm:pt-20">
+      <div class="my-container mx-auto pt-16 sm:pt-20 overflow-x-hidden">
         <slot />
       </div>
     </main>

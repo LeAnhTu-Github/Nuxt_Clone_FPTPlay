@@ -1,6 +1,6 @@
 <template>
-  <header class="fixed top-0 left-0 right-0 w-full bg-black text-white shadow-[0_1px_0_#222] z-[100]">
-    <nav class="container mx-auto h-16 sm:h-20 flex items-center justify-between">
+  <header class="fixed top-0 left-0 right-0 w-full bg-black text-white shadow-[0_1px_0_#222] z-[100] overflow-x-hidden box-border">
+    <nav class="my-container mx-auto h-16 sm:h-20 flex items-center justify-between">
       <div class="flex items-center flex-shrink-0">
         <button
           class="lg:hidden text-white bg-none border-none cursor-pointer p-1 flex items-center mr-2 order-1"
@@ -161,7 +161,7 @@
 
       <div class="flex items-center gap-1 sm:gap-2 ml-2 shrink-0">
         <button 
-          class="hidden sm:flex text-white bg-none border-none cursor-pointer p-1 items-center" 
+          class="hidden lg:flex text-white bg-none border-none cursor-pointer p-1 items-center" 
           aria-label="Tìm kiếm" 
           tabindex="0"
         >
@@ -171,7 +171,7 @@
           </svg>
         </button>
         <button 
-          class="hidden sm:flex text-white bg-none border-none cursor-pointer p-1 items-center" 
+          class="hidden lg:flex text-white bg-none border-none cursor-pointer p-1 items-center" 
           aria-label="Thông báo" 
           tabindex="0"
         >
@@ -180,9 +180,14 @@
             <path d="M13.73 21a2 2 0 01-3.46 0" stroke-width="2" />
           </svg>
         </button>
+        <button 
+          class="hidden lg:flex bg-[#ff6600] text-white rounded-lg py-1 px-3 sm:py-2 sm:px-5 sm:text-base mr-1 sm:mr-2 cursor-pointer items-center transition-colors duration-200 hover:bg-[#ff4400] text-sm font-bold"
+        >
+          Mua gói
+        </button>
         <NuxtLink 
-          to="/" 
-          class="text-white text-sm sm:text-base no-underline opacity-85 hover:opacity-100 transition-opacity duration-200 font-bold bg-[#ff6600] rounded-lg py-1 px-3 sm:py-2 sm:px-5 mr-1 sm:mr-2"
+          to="/login" 
+          class="text-white text-sm sm:text-base no-underline opacity-85 hover:opacity-100 transition-opacity duration-200  rounded-lg py-1 px-3 sm:py-2 sm:px-5 mr-1 sm:mr-2"
         >
           Đăng nhập
         </NuxtLink>
