@@ -9,7 +9,7 @@
           :arrows="false"
           :auto-scroll="false"
           :scroll-snap="true"
-          :ui="{ item: 'px-2 basis-full md:basis-[48%] mr-[-16px]' }"
+          :ui="{ item: 'px-4 basis-full md:basis-1/2' }"
           class="w-full overflow-x-visible"
           v-slot="{ item }"
         >
@@ -38,18 +38,29 @@
                 <span v-if="item.episodes">• {{ item.episodes }} tập</span>
                 <span v-if="item.country">• {{ item.country }}</span>
               </div>
+              <button
+                class="flex lg:hidden items-center gap-2 bg-[#fe592a] hover:bg-[#ff4400] text-white font-bold px-5 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fe592a] transition mt-2 w-auto max-w-[30vw] sm:max-w-[40vw] md:max-w-[200px]"
+                aria-label="Đặt lịch"
+                tabindex="0"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                Đặt lịch
+              </button>
             </div>
             <button
-                  class="absolute bottom-12 right-4 flex items-center gap-2 bg-[#fe592a] hover:bg-[#ff4400] text-white font-bold px-5 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fe592a] transition"
-                  aria-label="Đặt lịch"
-                  tabindex="0"
-                >
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                  </svg>
-                  Đặt lịch
-                </button>
+              class="hidden lg:flex absolute bottom-12 right-4 items-center justify-center gap-2 bg-[#fe592a] hover:bg-[#ff4400] text-white font-bold px-5 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fe592a] transition min-w-[120px] max-w-[200px] w-auto"
+              aria-label="Đặt lịch"
+              tabindex="0"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+              Đặt lịch
+            </button>
           </div>
         </UCarousel>
       </div>

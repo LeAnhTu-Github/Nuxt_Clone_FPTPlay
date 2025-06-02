@@ -1,8 +1,10 @@
 <template>
   <div>
     <Header />
-    <main class="container pt-20">
-      <slot />
+    <main>
+      <div class="container mx-auto pt-16 sm:pt-20">
+        <slot />
+      </div>
     </main>
     <Footer />
   </div>

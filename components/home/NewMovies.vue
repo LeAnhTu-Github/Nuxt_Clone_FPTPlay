@@ -3,7 +3,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-2xl text-white font-bold mb-8">{{ title }}</h2>
             <UCarousel :items="movies" loop :show-dots="false" :arrows="false" :auto-scroll="false" :scroll-snap="true"
-                :ui="{ item: 'basis-1/3 px-2' }" class="w-full" v-slot="{ item }">
+                :ui="{ item: 'basis-2/3 sm:basis-1/3 md:basis-1/3'  }" class="w-full" v-slot="{ item }">
                 <div class="relative group">
                     <span
                         class="absolute left-2 top-2 z-10 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg px-2 py-1 text-white font-bold text-sm select-none"

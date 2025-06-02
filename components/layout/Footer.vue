@@ -1,6 +1,6 @@
 <template>
     <footer class="bg-black text-white pt-8 pb-4">
-        
+
         <div class="container mx-auto px-4">
             <div class="border-t border-gray-700 my-6"></div>
             <!-- Top section -->
@@ -84,9 +84,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Divider -->
             <div class="border-t border-gray-700 my-6"></div>
-            <!-- Bottom section -->
             <div class="text-xs text-gray-300 space-y-2 flex gap-2 justify-between">
                 <div class="w-3/4">
                     <div class="text-xs">
@@ -104,7 +102,6 @@
                         lần 1 ngày 10/10/2023.
                     </div>
                 </div>
-                <!-- Icon platforms -->
                 <div class="flex gap-4 mt-2 w-1/4 pl-10">
                     <img src="/images/icon-box.png" alt="Box" class="h-5" />
                     <img src="/images/icon-tv.png" alt="TV" class="h-5" />
@@ -113,7 +110,6 @@
                     <img src="/images/icon-android.png" alt="Android" class="h-5" />
                 </div>
             </div>
-            <!-- Scroll to top button -->
             <button
                 class="fixed bottom-6 right-6 bg-gray-800 hover:bg-orange-500 transition-colors rounded-lg p-3 shadow-lg"
                 aria-label="Lên đầu trang" tabindex="0" @click="handleScrollTop">

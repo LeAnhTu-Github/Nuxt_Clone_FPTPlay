@@ -24,6 +24,10 @@ onMounted(async () => {
 })
 
 const bannerMovies = computed(() => movies.value.slice(0, 4))
-const newMovies = computed(() => movies.value.sort((a, b) => new Date(b.release_date) - new Date(a.release_date)).slice(0, 10))
-const rankingMovies = computed(() => movies.value.sort((a, b) => b.vote_average - a.vote_average).slice(0, 10))
+const newMovies = computed(() =>
+  [...movies.value].sort((a, b) => new Date(b.release_date) - new Date(a.release_date)).slice(0, 10)
+)
+const rankingMovies = computed(() =>
+  [...movies.value].sort((a, b) => b.vote_average - a.vote_average).slice(0, 10)
+)
 </script>

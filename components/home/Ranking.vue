@@ -20,7 +20,7 @@ console.log(props.movies)
         :arrows="false"
         :auto-scroll="false"
         :loop="false"
-        :ui="{ item: 'basis-2/3 sm:basis-1/3 md:basis-1/5 px-4' }"
+        :ui="{ item: 'basis-2/3 sm:basis-1/3 md:basis-1/3 lg:basis-1/5 px-4' }"
         class="w-full"
         v-slot="{ item, index }"
       >

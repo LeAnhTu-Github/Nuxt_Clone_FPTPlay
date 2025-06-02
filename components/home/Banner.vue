@@ -8,17 +8,17 @@
             }
         }" v-slot="{ item, index }">
 
-        <section class="relative h-[600px] w-full rounded-xl overflow-hidden shadow-lg">
+        <section class="relative w-full rounded-xl overflow-hidden shadow-lg h-[220px] sm:h-[350px] md:h-[450px] lg:h-[600px]">
             <img :src="`https://image.tmdb.org/t/p/original${item.backdrop_path}`" :alt="item.title"
                 class="absolute inset-0 w-full h-full object-cover max-w-full" draggable="false" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
 
-            <div class="absolute bottom-0 left-0 right-0 flex items-end px-16 pb-12 z-10">
+            <div class="absolute bottom-0 left-0 right-0 flex items-end px-4 sm:px-8 md:px-12 lg:px-16 pb-4 sm:pb-8 md:pb-10 lg:pb-12 z-10">
                 <div class="max-w-xl text-white drop-shadow-lg">
-                    <div class="flex items-center gap-4 mb-2">
-                        <span class="text-2xl font-bold tracking-wide">{{ item.title }}</span>
+                    <div class="flex items-center gap-2 sm:gap-4 mb-1 sm:mb-2">
+                        <span class="text-lg sm:text-2xl font-bold tracking-wide">{{ item.title }}</span>
                     </div>
-                    <div class="flex items-center gap-3 text-sm mb-6 opacity-80">
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs sm:text-sm mb-2 sm:mb-6 opacity-80">
                         <span v-if="item.release_date">{{ item.release_date.slice(0, 4) }}</span>
                         <span v-if="item.vote_count">• {{ item.vote_count }} lượt bình chọn</span>
                         <span v-if="item.vote_average">• ★ {{ item.vote_average }}</span>
@@ -31,26 +31,26 @@
                             </span>
                         </span>
                     </div>
-                    <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 sm:gap-4">
                         <button
-                            class="bg-[#fe592a] hover:bg-[#ff4400] text-white font-bold px-8 py-3 rounded-lg flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#fe592a] transition"
+                            class="bg-[#fe592a] hover:bg-[#ff4400] text-white font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-lg flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#fe592a] transition text-sm sm:text-base"
                             aria-label="Xem ngay" tabindex="0">
-                            <svg class="w-6 h-6" fill="white" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="white" stroke="white" stroke-width="2" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v18l15-9L5 3z" />
                             </svg>
                             Xem ngay
                         </button>
                         <button
-                            class="w-12 h-12 flex items-center justify-center rounded-full bg-[#232323]/80 hover:bg-[#232323] transition-colors duration-150"
+                            class="w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-[#232323]/80 hover:bg-[#232323] transition-colors duration-150"
                             aria-label="Yêu thích" tabindex="0">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
                                 viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" />
                             </svg>
                         </button>
                         <button
-                            class="w-12 h-12 flex items-center justify-center rounded-full bg-[#232323]/80 hover:bg-[#232323] transition-colors duration-150"
+                            class="w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-[#232323]/80 hover:bg-[#232323] transition-colors duration-150"
                             aria-label="Chia sẻ" tabindex="0">
                             <svg viewBox="0 0 16 16" width="1em" height="1em" focusable="false" role="img"
                                 aria-label="reply" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -80,13 +80,6 @@ const props = defineProps({
 })
 
 const carouselRef = ref(null)
-
-const handlePrev = () => {
-    carouselRef.value?.prev?.()
-}
-const handleNext = () => {
-    carouselRef.value?.next?.()
-}
 
 const genreMap = {
     28: "Hành động",

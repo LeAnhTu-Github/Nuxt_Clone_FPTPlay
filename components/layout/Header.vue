@@ -1,7 +1,7 @@
 <template>
   <header class="fixed top-0 left-0 right-0 w-full bg-black text-white shadow-[0_1px_0_#222] z-[100]">
-    <nav class="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between box-border w-full">
-        <div class="flex items-center flex-shrink-0">
+    <nav class="container mx-auto h-16 sm:h-20 flex items-center justify-between">
+      <div class="flex items-center flex-shrink-0">
         <button
           class="lg:hidden text-white bg-none border-none cursor-pointer p-1 flex items-center mr-2 order-1"
           aria-label="Mở menu"
@@ -9,7 +9,7 @@
           @click="toggleMobileMenu"
           @keydown.enter="toggleMobileMenu"
         >
-          <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path v-if="!isMobileMenuOpen" stroke-width="2" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
             <path v-else stroke-width="2" stroke-linecap="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -21,9 +21,8 @@
           <img
             src="/images/logo.png"
             alt="FPT Play"
-            class="h-8 sm:h-10 w-auto mr-2"
+            class="h-10 w-auto mr-2 ml-2 sm:h-12"
           />
-          <span class="hidden xs:inline">FPT Play</span>
         </NuxtLink>
       </div>
 
@@ -53,7 +52,7 @@
           </span>
           <div
             v-if="isMoreOpen"
-            class="more-modal absolute left-1/2 -translate-x-1/2 mt-3 w-[280px] sm:w-[340px] bg-[#232323] rounded-xl shadow-lg p-4 sm:p-6 flex gap-4 sm:gap-8 z-50"
+            class="more-modal absolute left-1/2 -translate-x-1/2 mt-3 max-w-[calc(100vw-32px)] w-fit bg-[#232323] rounded-xl shadow-lg p-4 sm:p-6 flex gap-4 sm:gap-8 z-50"
             role="menu"
             tabindex="0"
             aria-label="Danh sách xem thêm"
@@ -100,10 +99,6 @@
                 <NuxtLink
                   :to="nav.to"
                   class="block text-white text-base sm:text-lg font-medium whitespace-nowrap py-2 hover:text-[#fe592a] transition"
-                  :class="`
-                    text-sm xl:text-base font-medium whitespace-nowrap hover:text-[#fe592a] hover:opacity-100 hover:font-medium no-underline
-                    ${nav.to === '/' ? 'opacity-100 font-bold text-[#A6A6A6]' : 'text-gray-400'}
-                  `"
                   @click="toggleMobileMenu"
                 >
                   {{ nav.label }}
@@ -123,7 +118,7 @@
                 </span>
                 <div
                   v-if="isMoreOpen"
-                  class="more-modal bg-[#2a2a2a] rounded-lg p-4 flex flex-col sm:flex-row gap-4 sm:gap-8 mt-2"
+                  class="more-modal bg-[#2a2a2a] rounded-lg p-4 flex flex-col sm:flex-row gap-4 sm:gap-8 mt-2 max-w-full w-fit"
                   role="menu"
                   tabindex="0"
                   aria-label="Danh sách xem thêm"
@@ -150,6 +145,15 @@
                   </div>
                 </div>
               </li>
+              <li class="shrink-0">
+                <button
+                  class="block w-full text-white text-base sm:text-lg font-bold whitespace-nowrap py-2 hover:text-[#fe592a] transition bg-[#ff6600] rounded-lg"
+                  aria-label="Mua gói"
+                  @click="toggleMobileMenu"
+                >
+                  Mua gói
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -157,7 +161,7 @@
 
       <div class="flex items-center gap-1 sm:gap-2 ml-2 shrink-0">
         <button 
-          class="text-white bg-none border-none cursor-pointer p-1 flex items-center" 
+          class="hidden sm:flex text-white bg-none border-none cursor-pointer p-1 items-center" 
           aria-label="Tìm kiếm" 
           tabindex="0"
         >
@@ -167,7 +171,7 @@
           </svg>
         </button>
         <button 
-          class="text-white bg-none border-none cursor-pointer p-1 flex items-center" 
+          class="hidden sm:flex text-white bg-none border-none cursor-pointer p-1 items-center" 
           aria-label="Thông báo" 
           tabindex="0"
         >
@@ -176,14 +180,9 @@
             <path d="M13.73 21a2 2 0 01-3.46 0" stroke-width="2" />
           </svg>
         </button>
-        <button 
-          class="bg-[#ff6600] text-white rounded-lg sm:rounded-xl py-1.5 sm:py-2 px-3 sm:px-5 font-bold text-sm sm:text-base mr-1 sm:mr-2 cursor-pointer flex items-center transition-colors duration-200 hover:bg-[#ff4400]"
-        >
-          Mua gói
-        </button>
         <NuxtLink 
           to="/" 
-          class="text-white text-sm sm:text-base no-underline opacity-85 hover:opacity-100 transition-opacity duration-200"
+          class="text-white text-sm sm:text-base no-underline opacity-85 hover:opacity-100 transition-opacity duration-200 font-bold bg-[#ff6600] rounded-lg py-1 px-3 sm:py-2 sm:px-5 mr-1 sm:mr-2"
         >
           Đăng nhập
         </NuxtLink>
@@ -272,5 +271,10 @@ onBeforeUnmount(() => {
 }
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
+}
+
+.max-w-screen {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 </style>
