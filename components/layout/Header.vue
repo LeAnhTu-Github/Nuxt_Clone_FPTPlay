@@ -52,7 +52,7 @@
           </span>
           <div
             v-if="isMoreOpen"
-            class="more-modal absolute left-1/2 -translate-x-1/2 mt-3 max-w-[calc(100vw-32px)] w-fit bg-[#232323] rounded-xl shadow-lg p-4 sm:p-6 flex gap-4 sm:gap-8 z-100"
+            class="more-modal absolute left-1/2 -translate-x-1/2 mt-3 max-w-[calc(100vw-32px)] w-fit bg-[#232323] rounded-xl shadow-lg p-4 sm:p-6 flex gap-4 sm:gap-8 z-[9999]"
             role="menu"
             tabindex="0"
             aria-label="Danh sách xem thêm"
@@ -146,13 +146,7 @@
                 </div>
               </li>
               <li class="shrink-0">
-                <button
-                  class="block w-full text-white text-base sm:text-lg font-bold whitespace-nowrap py-2 hover:text-[#fe592a] transition bg-[#ff6600] rounded-lg"
-                  aria-label="Mua gói"
-                  @click="toggleMobileMenu"
-                >
-                  Mua gói
-                </button>
+                <NuxtLink to="/bundle" class="block text-white text-base sm:text-lg font-medium whitespace-nowrap py-2 hover:text-[#fe592a] transition"></NuxtLink>
               </li>
             </ul>
           </div>

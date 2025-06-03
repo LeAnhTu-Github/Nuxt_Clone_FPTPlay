@@ -1,3 +1,23 @@
+<script setup lang="ts">
+import type { Movie } from '~/types/Movie';
+
+const props = defineProps({
+  movies: {
+    type: Array as PropType<Movie[]>,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+});
+
+const router = useRouter()
+const handleClick = (id: number) => {
+  router.push(`/video/${id}`)
+}
+</script>
+
 <template>
   <section class="py-8 md:py-12 bg-black">
     <div class="my-container mx-auto">
@@ -21,7 +41,9 @@
               aspect-[2/3] w-full
               rounded-lg overflow-hidden
               transition-all
+              cursor-pointer
             "
+            @click="handleClick(item?.id)"
           >
             <img
               :src="`https://image.tmdb.org/t/p/w500${item.poster_path}`"
@@ -33,14 +55,22 @@
             class="
               block mt-2 text-xs xs:text-sm sm:text-sm md:text-base lg:text-base
               tracking-wide text-white line-clamp-2 text-center w-full
+              cursor-pointer
             "
+            @click="handleClick(item?.id)"
           >
             {{ item.title }}
           </span>
           <div
-            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg"
+            class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg cursor-pointer"
+            @click="handleClick(item?.id)"
           >
-            <button class="text-white p-2 rounded-full" aria-label="Xem ngay" tabindex="0">
+            <button 
+              class="text-white p-2 rounded-full" 
+              aria-label="Xem ngay" 
+              tabindex="0"
+              @click="handleClick(item?.id)"
+            >
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   stroke-linecap="round"
@@ -62,16 +92,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-const props = defineProps({
-  movies: {
-    type: Array,
-    required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-});
-</script>

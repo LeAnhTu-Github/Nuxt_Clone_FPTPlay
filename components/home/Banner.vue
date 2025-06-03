@@ -1,6 +1,35 @@
+<script setup>
+import { ref } from 'vue'
+
+const props = defineProps({
+    movies: {
+        type: Array,
+        required: true
+    }
+})
+
+const carouselRef = ref(null)
+
+const genreMap = {
+    28: "Hành động",
+    12: "Phiêu lưu",
+    14: "Kỳ ảo",
+    16: "Hoạt hình",
+    18: "Chính kịch",
+    27: "Kinh dị",
+    35: "Hài",
+    53: "Giật gân",
+    80: "Tội phạm",
+    878: "Khoa học viễn tưởng",
+    9648: "Bí ẩn",
+    10751: "Gia đình",
+    10752: "Chiến tranh"
+};
+</script>
+
 <template>
     <UCarousel ref="carouselRef" :items="movies" :arrows="false" :autoplay="{ interval: 3000 }" :show-dots="true"
-        class="w-full max-w-full mx-auto relative custom-carousel" :ui="{
+        class="w-full max-w-full mx-auto relative custom-carousel z-10" :ui="{
             arrows: {
                 wrapper: 'absolute inset-0 flex items-center justify-between px-4',
                 prev: 'custom-prev',
@@ -8,7 +37,7 @@
             }
         }" v-slot="{ item, index }">
 
-        <section class="relative w-full rounded-xl overflow-hidden shadow-lg h-[220px] sm:h-[350px] md:h-[450px] lg:h-[600px]">
+        <section class="relative w-full rounded-xl overflow-hidden shadow-lg h-[220px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10">
             <img :src="`https://image.tmdb.org/t/p/original${item.backdrop_path}`" :alt="item.title"
                 class="absolute inset-0 w-full h-full object-cover max-w-full" draggable="false" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
@@ -60,35 +89,6 @@
         </section>
     </UCarousel>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-const props = defineProps({
-    movies: {
-        type: Array,
-        required: true
-    }
-})
-
-const carouselRef = ref(null)
-
-const genreMap = {
-    28: "Hành động",
-    12: "Phiêu lưu",
-    14: "Kỳ ảo",
-    16: "Hoạt hình",
-    18: "Chính kịch",
-    27: "Kinh dị",
-    35: "Hài",
-    53: "Giật gân",
-    80: "Tội phạm",
-    878: "Khoa học viễn tưởng",
-    9648: "Bí ẩn",
-    10751: "Gia đình",
-    10752: "Chiến tranh"
-};
-</script>
 
 <style scoped>
 :deep(.custom-prev),
