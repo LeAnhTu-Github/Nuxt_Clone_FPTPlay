@@ -10,12 +10,16 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '375px',
+      },
       colors: {
         primary: {
           500: '#FF0000',
           600: '#CC0000',
         }
-      }
+      },
+      
     }
   },
   plugins: [],

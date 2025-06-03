@@ -15,7 +15,7 @@ const props = defineProps({
       </h2>
       <UCarousel :items="movies" :show-dots="false" :arrows="false" :auto-scroll="false" :loop="false"
         :ui="{ 
-          item: 'basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 snap-start',
+          item: 'basis-full xs:basis-1/2 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 snap-start',
           viewport: movies.length === 1
             ? 'overflow-x-auto snap-x snap-mandatory'
             : 'overflow-x-auto snap-x snap-mandatory'
@@ -67,3 +67,11 @@ const props = defineProps({
     </div>
   </section>
 </template>
+
+<style scoped>
+@media (min-width: 375px) {
+  .custom-xs\:basis-1\/2 {
+    flex-basis: 50%;
+  }
+}
+</style>

@@ -2,21 +2,17 @@
     <footer class="bg-black text-white pt-6 pb-4">
         <div class="my-container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="border-t border-gray-700 my-4"></div>   
-            <!-- Top section -->
             <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
-                <!-- Logo & badges -->
                 <div class="flex flex-col gap-4 w-full md:w-1/4 items-center md:items-start">
                     <div class="flex items-center gap-2">
-                        <img src="/images/logo.png" alt="FPT Play" class="h-8 sm:h-10" />
+                        <img src="/images/logo.png" alt="FPT Play" class="h-10 sm:h-12" />
                     </div>
                     <div class="flex flex-wrap gap-4">
                         <img src="/images/badge-bocongthuong.png" alt="Bộ Công Thương" class="h-6 sm:h-8 w-auto" />
                         <img src="/images/dmca-protected.png" alt="DMCA Protected" class="h-6 sm:h-8 w-auto" />
                     </div>
                 </div>
-                <!-- Column layout for Về FPT Play, Dịch vụ, Quy định -->
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full md:w-1/2 text-xs sm:text-sm text-center sm:text-left">
-                    <!-- Về FPT Play -->
                     <div class="flex flex-col gap-2">
                         <span class="font-semibold mb-2">Về FPT Play</span>
                         <a href="#" class="hover:underline">Giới thiệu</a>
@@ -25,7 +21,6 @@
                         <a href="#" class="hover:underline">Trung tâm hỗ trợ</a>
                         <a href="#" class="hover:underline">Thông tin</a>
                     </div>
-                    <!-- Dịch vụ -->
                     <div class="flex flex-col gap-2">
                         <span class="font-semibold mb-2">Dịch vụ</span>
                         <a href="#" class="hover:underline">Gói DATA</a>
@@ -33,7 +28,6 @@
                         <a href="#" class="hover:underline">Mua gói</a>
                         <a href="#" class="hover:underline">Bảo hành</a>
                     </div>
-                    <!-- Quy định -->
                     <div class="flex flex-col gap-2">
                         <span class="font-semibold mb-2">Quy định</span>
                         <a href="#" class="hover:underline">Điều khoản sử dụng</a>
@@ -41,7 +35,6 @@
                         <a href="#" class="hover:underline">Chính sách bảo mật thông tin dữ liệu</a>
                     </div>
                 </div>
-                <!-- Liên hệ & mạng xã hội -->
                 <div class="flex flex-col gap-2 w-full md:w-1/4 items-center md:items-start">
                     <div class="flex items-center gap-2">
                         <svg viewBox="0 0 16 16" width="0.8em" height="0.8em" focusable="false" role="img" aria-label="telephone" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-telephone b-icon bi" style="margin-right: 5px; font-size: 140%;">
