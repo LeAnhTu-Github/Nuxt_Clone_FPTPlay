@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-[#181818] rounded-2xl shadow-2xl p-16 w-[450px] sm:w-[500px] h-[420px] sm:h-[450px]">
+    <div class="bg-[#181818] rounded-2xl shadow-2xl p-10 sm:p-16 w-[90%] sm:w-[500px] h-auto sm:h-[450px]">
         <h1 class="text-[30px] font-bold text-white text-left mb-10">Đăng nhập hoặc đăng ký</h1>
         <div class="flex flex-col gap-6">
             <input type="text" placeholder="Số điện thoại"

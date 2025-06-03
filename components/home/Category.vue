@@ -1,6 +1,6 @@
 <template>
   <section class="py-6 bg-black">
-    <div class="container mx-auto">
+    <div class="my-container mx-auto">
       <h2 class="text-2xl text-white font-bold mb-6">Danh mục</h2>
       <UCarousel
         :items="categories"

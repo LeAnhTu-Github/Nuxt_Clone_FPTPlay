@@ -50,17 +50,9 @@
                             </svg>
                         </button>
                         <button
-                            class="w-9 h-9 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-[#232323]/80 hover:bg-[#232323] transition-colors duration-150"
+                            class="w-9 h-9 sm:w-12 sm:h-12 p-2 flex items-center justify-center rounded-full bg-[#232323]/80 hover:bg-[#232323] transition-colors duration-0"
                             aria-label="Chia sẻ" tabindex="0">
-                            <svg viewBox="0 0 16 16" width="1em" height="1em" focusable="false" role="img"
-                                aria-label="reply" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                class="bi-reply icon mb-1 b-icon bi">
-                                <g transform="translate(8 8) scale(2 2) translate(-8 -8)">
-                                    <path
-                                        d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z">
-                                    </path>
-                                </g>
-                            </svg>
+                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="scale-x-[-1]" fill="none" transform="rotate(0)" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.608 12.526l7.04-6.454C13.931 4.896 16 5.806 16 7.546V11c13 0 11 16 11 16s-4-10-11-10v3.453c0 1.74-2.069 2.65-3.351 1.475l-7.04-6.454a2 2 0 010-2.948z"></path> </g></svg>
                         </button>
                     </div>
                 </div>

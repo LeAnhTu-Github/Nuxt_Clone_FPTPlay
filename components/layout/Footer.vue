@@ -1,7 +1,7 @@
 <template>
     <footer class="bg-black text-white pt-6 pb-4">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="border-t border-gray-700 my-4"></div>
+        <div class="my-container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-gray-700 my-4"></div>   
             <!-- Top section -->
             <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
                 <!-- Logo & badges -->
@@ -9,7 +9,7 @@
                     <div class="flex items-center gap-2">
                         <img src="/images/logo.png" alt="FPT Play" class="h-8 sm:h-10" />
                     </div>
-                    <div class="flex gap-4">
+                    <div class="flex flex-wrap gap-4">
                         <img src="/images/badge-bocongthuong.png" alt="Bộ Công Thương" class="h-6 sm:h-8 w-auto" />
                         <img src="/images/dmca-protected.png" alt="DMCA Protected" class="h-6 sm:h-8 w-auto" />
                     </div>

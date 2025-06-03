@@ -1,6 +1,6 @@
 <template>
   <section class="py-8 md:py-12 bg-black">
-    <div class="container mx-auto px-2 sm:px-4">
+    <div class="my-container mx-auto">
       <h2 class="text-xl sm:text-2xl md:text-3xl text-white font-bold mb-6 md:mb-8">{{ title }}</h2>
       <UCarousel
         :items="movies"

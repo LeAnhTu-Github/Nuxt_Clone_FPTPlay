@@ -1,6 +1,6 @@
 <template>
     <section class="py-8 md:py-12 bg-black">
-      <div class="container mx-auto px-2 sm:px-4 overflow-x-visible">
+      <div class="my-container mx-auto overflow-x-visible">
         <h2 class="text-2xl text-white font-bold mb-6">{{ title }}</h2>
         <UCarousel
           :items="movies"
@@ -9,7 +9,7 @@
           :arrows="false"
           :auto-scroll="false"
           :scroll-snap="true"
-          :ui="{ item: 'px-4 basis-full md:basis-1/2' }"
+          :ui="{ item: 'px-4 basis-full md:basis-1/2 snap-start' }"
           class="w-full overflow-x-visible"
           v-slot="{ item }"
         >
@@ -28,7 +28,7 @@
               {{ item.label }}
             </span>
             <div class="absolute bottom-0 left-0 right-0 flex flex-col gap-2 px-6 pb-6 z-10">
-              <span class="text-lg md:text-2xl font-bold text-white drop-shadow mb-1">
+              <span class="text-lg md:text-2xl font-bold text-white drop-shadow mb-1 sm:w-[70%] w-full">
                 {{ item.title }}
               </span>
               <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-white/80 text-xs md:text-sm mb-1">
@@ -39,7 +39,7 @@
                 <span v-if="item.country">• {{ item.country }}</span>
               </div>
               <button
-                class="flex lg:hidden items-center gap-2 bg-[#fe592a] hover:bg-[#ff4400] text-white font-bold px-5 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fe592a] transition mt-2 w-auto max-w-[40vw] sm:max-w-[40vw] md:max-w-[200px]"
+                class="flex lg:hidden items-center gap-2 bg-[#fe592a] hover:bg-[#ff4400] text-white font-bold px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fe592a] transition mt-2 w-auto max-w-[120px]"
                 aria-label="Đặt lịch"
                 tabindex="0"
               >

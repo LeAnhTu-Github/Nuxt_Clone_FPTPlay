@@ -1,7 +1,7 @@
 <template>
-  <header class="fixed top-0 left-0 right-0 w-full bg-black text-white shadow-[0_1px_0_#222] z-[100] overflow-x-hidden box-border">
+  <header class="fixed top-0 left-0 right-0 w-full bg-black text-white shadow-[0_1px_0_#222] z-[50] overflow-x-hidden box-border">
     <nav class="my-container mx-auto h-16 sm:h-20 flex items-center justify-between">
-      <div class="flex items-center flex-shrink-0">
+      <div class="flex items-center flex-shrink-0 w-full max-w-[150px]">
         <button
           class="lg:hidden text-white bg-none border-none cursor-pointer p-1 flex items-center mr-2 order-1"
           aria-label="Mở menu"
@@ -16,17 +16,17 @@
         </button> 
         <NuxtLink
           to="/"
-          class="flex items-center font-bold text-[#ff6600] text-xl sm:text-2xl order-2"
+          class="flex items-center font-bold text-[#ff6600] text-xl sm:text-2xl order-2 mr-4"
         >
           <img
             src="/images/logo.png"
             alt="FPT Play"
-            class="h-10 w-auto mr-2 ml-2 sm:h-12"
+            class="h-12 w-full sm:h-14 pt-2"
           />
         </NuxtLink>
       </div>
 
-      <ul class="hidden lg:flex gap-4 xl:gap-6 list-none m-0 pt-4 flex-1">
+      <ul class="hidden lg:flex gap-2 xl:gap-4 list-none m-0 pt-4 flex-1">
         <li v-for="nav in navList" :key="nav.label" class="relative">
           <NuxtLink 
             :to="nav.to" 
@@ -52,7 +52,7 @@
           </span>
           <div
             v-if="isMoreOpen"
-            class="more-modal absolute left-1/2 -translate-x-1/2 mt-3 max-w-[calc(100vw-32px)] w-fit bg-[#232323] rounded-xl shadow-lg p-4 sm:p-6 flex gap-4 sm:gap-8 z-50"
+            class="more-modal absolute left-1/2 -translate-x-1/2 mt-3 max-w-[calc(100vw-32px)] w-fit bg-[#232323] rounded-xl shadow-lg p-4 sm:p-6 flex gap-4 sm:gap-8 z-100"
             role="menu"
             tabindex="0"
             aria-label="Danh sách xem thêm"

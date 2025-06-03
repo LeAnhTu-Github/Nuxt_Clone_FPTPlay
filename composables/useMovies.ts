@@ -17,7 +17,7 @@ export const useMovies = () => {
       loading.value = false
     }
   }
-
+  
   return {
     movies,
     loading,

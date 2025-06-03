@@ -1,6 +1,6 @@
 <template>
     <section class="py-6 bg-black">
-        <div class="container mx-auto px-4">
+        <div class="my-container mx-auto">
             <h2 class="text-2xl text-white font-bold mb-8">{{ title }}</h2>
             <UCarousel :items="movies" loop :show-dots="false" :arrows="false" :auto-scroll="false" :scroll-snap="true"
                 :ui="{ item: 'basis-2/3 sm:basis-1/3 md:basis-1/3'  }" class="w-full" v-slot="{ item }">
