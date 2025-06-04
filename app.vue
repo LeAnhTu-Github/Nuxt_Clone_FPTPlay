@@ -1,8 +1,17 @@
+<script setup lang="ts">
+
+
+</script>
+
 <template>
   <div class="bg-black">
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <UApp :toaster="{
+      position: 'top-right',
+    }">
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </UApp>
   </div>
 </template>
 

@@ -39,7 +39,7 @@
                 <span v-if="item.country">• {{ item.country }}</span>
               </div>
               <button
-                class="flex lg:hidden items-center gap-2 bg-[#fe592a] hover:bg-[#ff4400] text-white font-bold px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fe592a] transition mt-2 w-auto max-w-[120px]"
+                class="flex lg:hidden items-center gap-2 bg-[#fe592a] hover:bg-[#ff4400] text-white font-bold px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fe592a] transition mt-2 w-auto min-w-[120px] max-w-[120px]"
                 aria-label="Đặt lịch"
                 tabindex="0"
               >

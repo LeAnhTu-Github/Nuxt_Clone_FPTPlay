@@ -174,11 +174,12 @@
             <path d="M13.73 21a2 2 0 01-3.46 0" stroke-width="2" />
           </svg>
         </button>
-        <button 
+        <NuxtLink 
+          to="/bundle"
           class="hidden lg:flex bg-[#ff6600] text-white rounded-lg py-1 px-3 sm:py-2 sm:px-5 sm:text-base mr-1 sm:mr-2 cursor-pointer items-center transition-colors duration-200 hover:bg-[#ff4400] text-sm font-bold"
         >
           Mua gói
-        </button>
+        </NuxtLink>
         <NuxtLink 
           to="/login" 
           class="text-white text-sm sm:text-base no-underline opacity-85 hover:opacity-100 transition-opacity duration-200  rounded-lg py-1 px-3 sm:py-2 sm:px-5 mr-1 sm:mr-2"

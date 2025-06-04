@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import NewMovies from '~/components/home/NewMovies.vue'
+import EpisodeList from '~/components/video/EpisodeList.vue'
 const route = useRoute()
-const { movie, loading, error, fetchMovieById } = useMovies()
+const { movie,movies, loading, error, fetchMovieById, fetchPopularMovies } = useMovies()
 
 onMounted(() => {
     const movieId = route.params.id as string
     fetchMovieById(movieId)
+    fetchPopularMovies()
 })
 const genreMap = {
     28: "Hành động",
@@ -129,6 +132,11 @@ const genreMap = {
                 </div>
             </div>
         </div>
+
+        <NewMovies :movies="movies.results" title="Nội dung liên quan" />
+
+        <EpisodeList />
+
     </div>
 </template>
 
