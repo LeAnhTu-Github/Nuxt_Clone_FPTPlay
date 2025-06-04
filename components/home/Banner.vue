@@ -37,7 +37,7 @@ const genreMap = {
             }
         }" v-slot="{ item, index }">
 
-        <section class="relative w-full rounded-xl overflow-hidden shadow-lg h-[220px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10">
+        <section class="relative w-full rounded-xl overflow-hidden shadow-lg h-[220px] xs:h-[280px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10">
             <img :src="`https://image.tmdb.org/t/p/original${item.backdrop_path}`" :alt="item.title"
                 class="absolute inset-0 w-full h-full object-cover max-w-full" draggable="false" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>

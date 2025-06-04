@@ -4,6 +4,8 @@ import EpisodeList from '~/components/video/EpisodeList.vue'
 const route = useRoute()
 const { movie,movies, loading, error, fetchMovieById, fetchPopularMovies } = useMovies()
 
+const movieGenres = ref<string[]>([])
+
 onMounted(() => {
     const movieId = route.params.id as string
     fetchMovieById(movieId)
@@ -24,6 +26,14 @@ const genreMap = {
     10751: "Gia đình",
     10752: "Chiến tranh"
 };
+const genres = computed(() => {
+    return movie.value?.genres?.map(genre => genreMap[genre.id as keyof typeof genreMap]) || []
+})
+watch(movie, (newMovie) => {
+    if (newMovie) {
+        movieGenres.value = newMovie.genres?.map(genre => genreMap[genre.id as keyof typeof genreMap]) || []
+    }
+}, { immediate: true })
 </script>
 
 <template>
@@ -40,7 +50,9 @@ const genreMap = {
             <div class="relative w-full aspect-video bg-black rounded-b-2xl overflow-hidden">
                 <iframe src="https://vip.opstream14.com/share/c8b5850476913c169ecbb4d02bbe32a5" frameborder="0"
                     allow="autoplay; encrypted-media" allowfullscreen class="w-full h-full"
-                    title="Video player"></iframe>
+                    title="Video player"
+                    
+                ></iframe>
                 <div
                     class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/80 via-black/30 to-transparent">
                 </div>
@@ -101,9 +113,9 @@ const genreMap = {
                             </svg>
                             <span class="text-sm">Theo dõi</span>
                         </button>
-                        <button class="flex items-center gap-2 text-white hover:text-orange-500 focus:outline-none"
+                        <button class="min-w-[100px] flex items-center gap-2 text-white hover:text-orange-500 focus:outline-none text-sm"
                             aria-label="Chia sẻ">
-                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="scale-x-[-1]" fill="none"
+                            <svg viewBox="0 0 32 32" width="25" height="25" xmlns="http://www.w3.org/2000/svg" class="scale-x-[-1]" fill="none"
                                 transform="rotate(0)" stroke="#ffffff">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -114,19 +126,18 @@ const genreMap = {
                                     </path>
                                 </g>
                             </svg>
-                            <span class="text-sm">Chia sẻ</span>
+                            <span class="text-sm whitespace-nowrap">Chia sẻ</span>
                         </button>
                     </div>
                     <div class="text-gray-300 text-sm">
                         <div class="mb-2"><span class="font-semibold">Diễn viên:</span> Lý Tư Kỳ, Hạ Vũ, Huỳnh Tông
                             Trạch</div>
                         <div class="mb-2"><span class="font-semibold">Đạo diễn:</span> Trần Chí Giang</div>
-                        <div class="mb-2"><span class="font-semibold">Thể loại:</span> Tâm lý</div>
                         <div class="mb-2">
-                            <span class="font-semibold">Danh mục:</span>
-                            <a href="#" class="underline hover:text-orange-500">Phim bộ</a>
-                            <span> &gt; </span>
-                            <a href="#" class="underline hover:text-orange-500">Hoa ngữ</a>
+                            <span class="font-semibold">Danh mục: </span>
+                            <span v-for="(genre, idx) in movieGenres" :key="idx">
+                                {{ genre }}<span v-if="idx < movieGenres.length - 1">, </span>
+                            </span>
                         </div>
                     </div>
                 </div>

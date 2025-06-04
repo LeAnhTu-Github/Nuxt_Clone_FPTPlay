@@ -65,7 +65,7 @@
             </div>
             <div class="border-t border-gray-700 my-4"></div>
             <div class="text-xs text-gray-300 space-y-4 md:flex md:gap-4 md:justify-between">
-                <div class="w-full md:w-3/4 text-center md:text-left">
+                <div class="w-full md:w-3/4 text-center md:text-left block md:flex">
                     <div>
                         Công ty Cổ phần Viễn Thông FPT - Người đại diện: Ông Hoàng Việt Anh. Trụ sở: Tầng 2, Tòa nhà FPT Cầu Giấy, Số 17 Phố Duy Tân, Phường Dịch Vọng Hậu, Quận Cầu Giấy, TP.Hà Nội<br>
                         Địa chỉ liên lạc: Tầng 9, Block A, tòa nhà FPT Cầu Giấy, số 10 Phạm Văn Bạch, quận Cầu Giấy, TP. Hà Nội<br>

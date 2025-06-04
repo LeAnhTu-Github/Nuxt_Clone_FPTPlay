@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Bundle } from '~/types/Bundle'
-import { defineProps, ref, onMounted, watch } from 'vue'
+import { defineProps, ref } from 'vue'
 
 const props = defineProps<{
     bundles: Bundle[]
@@ -36,11 +36,9 @@ const handleClick = (idPackage: number) => {
 }
 
 </script>
-
-
     <template>
         <div class="w-full overflow-x-auto">
-            <div class="flex w-full h-auto bg-black text-white min-w-[700px]">
+            <div class="flex w-full h-auto bg-black text-white min-w-[600px]">
                 <div class="w-3/10 flex flex-col">
                     <div class="flex items-end pb-4 w-full h-[90px] text-2xl font-bold">Mua gói</div>
                     <div v-for="(section, index) in sections" :key="index" class="flex flex-start px-4 even:bg-[#0F0F0F]">

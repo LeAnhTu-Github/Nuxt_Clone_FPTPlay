@@ -2,6 +2,7 @@ export type Movie = {
     adult: boolean
     backdrop_path: string
     genre_ids: number[]
+    genres: Genre[]
     id: number
     original_language: string
     original_title: string
@@ -20,4 +21,8 @@ export type Movie = {
     results: Movie[]
     total_pages: number
     total_results: number
+  }
+  export type Genre = {
+    id: number
+    name: string
   }
