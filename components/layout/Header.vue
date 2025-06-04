@@ -146,7 +146,7 @@
                 </div>
               </li>
               <li class="shrink-0">
-                <NuxtLink to="/bundle" class="block text-white text-base sm:text-lg font-medium whitespace-nowrap py-2 hover:text-[#fe592a] transition"></NuxtLink>
+                <NuxtLink to="/bundle" class="block text-white text-base sm:text-lg font-medium whitespace-nowrap py-2 hover:text-[#fe592a] transition">Mua gói</NuxtLink>
               </li>
             </ul>
           </div>
