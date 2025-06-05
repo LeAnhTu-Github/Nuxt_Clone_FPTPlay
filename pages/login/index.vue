@@ -1,8 +1,15 @@
+<script setup lang="ts">
+
+definePageMeta({
+  layout: false
+})
+import ModalLogin from '~/components/mod/ModalLogin.vue';
+</script>
 <template>
   <div class="relative w-screen h-screen flex justify-center items-center">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-[url(/images/bg-login.png)] opacity-10"></div>
     <div class="absolute top-2 left-1/2 -translate-x-1/2">
-      <img src="/images/logo.png" alt="logo" class="w-[220px] h-[90px]">
+      <NuxtImg src="/images/logo.png" alt="logo" class="w-[220px] h-[90px]" draggable="false" />
     </div>
     <NuxtLink to="/" class="absolute top-8 right-8">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -24,10 +31,3 @@
   </div>
 </template>
 
-<script setup>
-
-definePageMeta({
-  layout: false
-})
-import ModalLogin from '~/components/mod/ModalLogin.vue';
-</script>

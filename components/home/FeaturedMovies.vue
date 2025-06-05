@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import type { Movie } from '~/types/Movie';
+import { useTmdbImage } from '~/composables/useTbdbImage'
+const { getImageUrl } = useTmdbImage()
+interface FeaturedMoviesProps {
+  movies: Movie[]
+  title: string
+  loading: boolean
+}
 
-const props = defineProps({
-  movies: {
-    type: Array as PropType<Movie[]>,
-    required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-});
+const props = defineProps<FeaturedMoviesProps>()
 
 const router = useRouter()
 const handleClick = (id: number) => {
@@ -22,8 +20,36 @@ const handleClick = (id: number) => {
   <section class="py-8 md:py-12 bg-black">
     <div class="my-container mx-auto">
       <h2 class="text-xl sm:text-2xl md:text-3xl text-white font-bold mb-6 md:mb-8">{{ title }}</h2>
+      
+      <div v-if="loading" class="w-full">
+        <UCarousel
+          :items="[1, 2, 3, 4, 5]"
+          loop
+          :show-dots="false"
+          :arrows="false"
+          :auto-scroll="false"
+          :scroll-snap="true"
+          :ui="{
+            item: 'basis-1/2 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5 snap-start'
+          }"
+          class="w-full"
+          v-slot="{ item }"
+        >
+          <div class="relative group flex flex-col items-center px-2">
+            <div class="aspect-[2/3] w-full rounded-lg overflow-hidden">
+              <USkeleton class="w-full h-full" />
+            </div>
+            <div class="w-full mt-2">
+              <USkeleton class="h-4 w-3/4 mx-auto" />
+              <USkeleton class="h-4 w-1/2 mx-auto mt-1" />
+            </div>
+          </div>
+        </UCarousel>
+      </div>
+
       <UCarousel
-        :items="movies"
+        v-else
+        :items="props.movies"
         loop
         :show-dots="false"
         :arrows="false"
@@ -45,9 +71,7 @@ const handleClick = (id: number) => {
             "
             @click="handleClick(item?.id)"
           >
-            <img
-              :src="`https://image.tmdb.org/t/p/w500${item.poster_path}`"
-              :alt="item.title"
+            <NuxtImg :src="getImageUrl(item.poster_path, 'w500')" :alt="item.title" 
               class="w-full h-full object-cover"
             />
           </div>

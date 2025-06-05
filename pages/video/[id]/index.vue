@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import NewMovies from '~/components/home/NewMovies.vue'
-import EpisodeList from '~/components/video/EpisodeList.vue'
+
 const route = useRoute()
-const { movie,movies, loading, error, fetchMovieById, fetchPopularMovies } = useMovies()
+const { movie, movies, loading, error, fetchMovieById, fetchPopularMovies } = useMovies()
 
 const movieGenres = ref<string[]>([])
 
@@ -38,8 +38,48 @@ watch(movie, (newMovie) => {
 
 <template>
     <div class=" my-container mx-auto min-h-screen bg-black text-white relative overflow-hidden top-0">
-        <div v-if="loading" class="flex items-center justify-center min-h-screen">
-            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
+        <div v-if="loading" class="my-container mx-auto">
+            <div class="relative w-full aspect-video bg-gray-800 rounded-b-2xl overflow-hidden">
+                <USkeleton class="w-full h-full" />
+            </div>
+
+            <div class="py-6 bg-black grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 space-y-4">
+                    <div class="space-y-2">
+                        <USkeleton class="h-8 w-3/4" />
+                        <USkeleton class="h-6 w-1/2" />
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <USkeleton class="h-8 w-32" />
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2">
+                        <USkeleton class="h-5 w-16" />
+                        <USkeleton class="h-5 w-16" />
+                        <USkeleton class="h-5 w-16" />
+                        <USkeleton class="h-5 w-16" />
+                    </div>
+
+                    <div class="space-y-2">
+                        <USkeleton class="h-5 w-full" />
+                        <USkeleton class="h-5 w-full" />
+                        <USkeleton class="h-5 w-3/4" />
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-center gap-6">
+                        <USkeleton class="h-10 w-32" />
+                        <USkeleton class="h-10 w-32" />
+                    </div>
+
+                    <div class="space-y-3">
+                        <USkeleton class="h-5 w-full" />
+                        <USkeleton class="h-5 w-full" />
+                        <USkeleton class="h-5 w-3/4" />
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div v-else-if="error" class="flex items-center justify-center min-h-screen">
@@ -50,9 +90,7 @@ watch(movie, (newMovie) => {
             <div class="relative w-full aspect-video bg-black rounded-b-2xl overflow-hidden">
                 <iframe src="https://vip.opstream14.com/share/c8b5850476913c169ecbb4d02bbe32a5" frameborder="0"
                     allow="autoplay; encrypted-media" allowfullscreen class="w-full h-full"
-                    title="Video player"
-                    
-                ></iframe>
+                    title="Video player"></iframe>
                 <div
                     class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/80 via-black/30 to-transparent">
                 </div>
@@ -61,7 +99,6 @@ watch(movie, (newMovie) => {
             <div class=" py-6 bg-black grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="md:col-span-2">
                     <h1 class="text-xl md:text-2xl font-bold mb-2">{{ movie.title }}</h1>
-                    <div class="text-lg text-gray-300 mb-4">{{ movie.original_title }}</div>
                     <div class="flex items-center gap-2 mb-4">
                         <div class="flex items-center">
                             <span
@@ -94,11 +131,11 @@ watch(movie, (newMovie) => {
                         <span>•</span>
                         <span>
                             {{ movie.original_language === 'zh' ? 'Hồng Kông' : movie.original_language?.toUpperCase()
-                            || 'Không rõ' }}
+                                || 'Không rõ' }}
                         </span>
                     </div>
                     <div class="mb-2 text-gray-300">Nội dung tâm lý, xã hội</div>
-                    <div class="text-gray-200 leading-relaxed">
+                    <div class="text-gray-200 text-sm xl:text-base lg:text-lg leading-relaxed">
                         {{ movie.overview || 'Chưa có nội dung.' }}
                     </div>
                 </div>
@@ -113,10 +150,11 @@ watch(movie, (newMovie) => {
                             </svg>
                             <span class="text-sm">Theo dõi</span>
                         </button>
-                        <button class="min-w-[100px] flex items-center gap-2 text-white hover:text-orange-500 focus:outline-none text-sm"
+                        <button
+                            class="min-w-[100px] flex items-center gap-2 text-white hover:text-orange-500 focus:outline-none text-sm"
                             aria-label="Chia sẻ">
-                            <svg viewBox="0 0 32 32" width="25" height="25" xmlns="http://www.w3.org/2000/svg" class="scale-x-[-1]" fill="none"
-                                transform="rotate(0)" stroke="#ffffff">
+                            <svg viewBox="0 0 32 32" width="25" height="25" xmlns="http://www.w3.org/2000/svg"
+                                class="scale-x-[-1]" fill="none" transform="rotate(0)" stroke="#ffffff">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                 <g id="SVGRepo_iconCarrier">
@@ -144,9 +182,28 @@ watch(movie, (newMovie) => {
             </div>
         </div>
 
-        <NewMovies :movies="movies.results" title="Nội dung liên quan" />
+        <div v-if="loading">
+            <div class="py-8">
+                <USkeleton class="h-8 w-48 mb-6" />
+                <UCarousel :items="[1, 2, 3, 4, 5]" loop :show-dots="false" :arrows="false" :auto-scroll="false"
+                    :scroll-snap="true" :ui="{ item: 'basis-2/3 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 snap-start' }"
+                    class="w-full" v-slot="{ item }">
+                    <div class="relative group">
+                        <USkeleton class="absolute left-2 top-2 z-10 h-7 w-16 rounded-lg" />
 
-        <EpisodeList />
+                        <div class="aspect-[16/9] w-full rounded-lg overflow-hidden">
+                            <USkeleton class="w-full h-full" />
+                        </div>
+
+                        <div class="mt-2">
+                            <!-- <USkeleton class="h-5 w-3/4" /> -->
+                            <USkeleton class="h-5 w-1/2 mt-1" />
+                        </div>
+                    </div>
+                </UCarousel>
+            </div>
+        </div>
+        <NewMovies v-else-if="movies.results.length && !loading" :movies="movies.results" title="Nội dung liên quan" />
 
     </div>
 </template>

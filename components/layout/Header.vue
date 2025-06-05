@@ -1,5 +1,5 @@
-<script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+<script setup lang="ts">
+import { ref } from 'vue'
 
 const isMoreOpen = ref(false)
 const isMobileMenuOpen = ref(false)
@@ -54,7 +54,7 @@ const toggleMobileMenu = () => {
           </svg>
         </button>
         <NuxtLink to="/" class="flex items-center font-bold text-[#ff6600] text-xl sm:text-2xl order-2 mr-4">
-          <img src="/images/logo.png" alt="FPT Play" class="h-12 w-full sm:h-14 pt-2" />
+          <NuxtImg src="/images/logo.png" alt="FPT Play" class="h-12 w-full sm:h-14 pt-2" draggable="false" />
         </NuxtLink>
       </div>
 
@@ -108,47 +108,6 @@ const toggleMobileMenu = () => {
                   {{ item.label }}
                 </NuxtLink>
               </li>
-              <!-- <li class="shrink-0">
-                <span
-                  class="block text-[#A6A6A6] text-base sm:text-lg font-medium whitespace-nowrap py-2 hover:text-[#fe592a] transition more-trigger"
-                  tabindex="0"
-                  aria-haspopup="true"
-                  :aria-expanded="isMoreOpen"
-                  @click="handleToggleMore"
-                  @keydown.enter="handleToggleMore"
-                  aria-label="Xem thêm"
-                >
-                  Xem thêm ▼
-                </span>
-                <div
-                  v-if="isMoreOpen"
-                  class="more-modal bg-[#2a2a2a] rounded-lg p-4 flex flex-col sm:flex-row gap-4 sm:gap-8 mt-2 max-w-full w-fit"
-                  role="menu"
-                  tabindex="0"
-                  aria-label="Danh sách xem thêm"
-                >
-                  <div class="flex flex-col gap-2 sm:gap-3 flex-1">
-                    <span 
-                      v-for="item in moreMenu.map(i => i[0])" 
-                      :key="item" 
-                      class="text-[#A6A6A6] text-sm sm:text-base cursor-pointer hover:text-[#fe592a]"
-                      @click="toggleMobileMenu"
-                    >
-                      {{ item }}
-                    </span>
-                  </div>
-                  <div class="flex flex-col gap-2 sm:gap-3 flex-1">
-                    <span 
-                      v-for="item in moreMenu.map(i => i[1])" 
-                      :key="item" 
-                      class="text-[#A6A6A6] w-full text-sm sm:text-base cursor-pointer hover:text-[#fe592a]"
-                      @click="toggleMobileMenu"
-                    >
-                      {{ item }}
-                    </span>
-                  </div>
-                </div>
-              </li>    -->
             </ul>
           </div>
         </div>
@@ -171,7 +130,7 @@ const toggleMobileMenu = () => {
         </button>
         <NuxtLink to="/bundle"
           class=" bg-[#ff6600] min-w-15 h-auto flex justify-center  text-white rounded-lg py-1 px-3 sm:py-2 sm:px-5 sm:text-base mr-1 sm:mr-2 cursor-pointer items-center transition-colors duration-200 hover:bg-[#ff4400] text-sm font-bold">
-          <img src="/images/Wallet.png" alt="Mua gói" class="w-6 h-6 mr-2 hidden lg:block">
+          <NuxtImg src="/images/Wallet.png" alt="Mua gói" class="w-6 h-6 mr-2 hidden lg:block" draggable="false" />
           Mua gói
         </NuxtLink>
         <NuxtLink to="/login"

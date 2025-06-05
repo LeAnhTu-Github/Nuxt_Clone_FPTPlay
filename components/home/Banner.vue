@@ -1,15 +1,24 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
+import { useTmdbImage } from '~/composables/useTbdbImage'
+import type { Movie } from '~/types/Movie'
+const { getImageUrl } = useTmdbImage()
 
-const props = defineProps({
-    movies: {
-        type: Array,
-        required: true
-    }
+interface BannerProps {
+    movies: Movie[]
+    loading?: boolean
+}
+
+const props = withDefaults(defineProps<BannerProps>(), {
+    loading: false
 })
-
 const carouselRef = ref(null)
+const delay = ref(3000)
+const router = useRouter()
 
+const handleClick = (id: number) => {
+    router.push(`/video/${id}`)
+}
 const genreMap = {
     28: "Hành động",
     12: "Phiêu lưu",
@@ -28,17 +37,13 @@ const genreMap = {
 </script>
 
 <template>
-    <UCarousel ref="carouselRef" :items="movies" :arrows="false" :autoplay="{ interval: 3000 }" :show-dots="true"
+    <UCarousel v-if="!loading" ref="carouselRef" :items="props.movies" :arrows="false" :autoplay="{ delay }" :show-dots="true"
         class="w-full max-w-full mx-auto relative custom-carousel z-10" :ui="{
-            arrows: {
-                wrapper: 'absolute inset-0 flex items-center justify-between px-4',
-                prev: 'custom-prev',
-                next: 'custom-next'
-            }
+            arrows: 'absolute inset-0 flex items-center justify-between px-4'
         }" v-slot="{ item, index }">
 
         <section class="relative w-full rounded-xl overflow-hidden shadow-lg h-[220px] xs:h-[280px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10">
-            <img :src="`https://image.tmdb.org/t/p/original${item.backdrop_path}`" :alt="item.title"
+            <NuxtImg :src="getImageUrl(item.backdrop_path, 'original')" :alt="item.title"
                 class="absolute inset-0 w-full h-full object-cover max-w-full" draggable="false" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
 
@@ -56,12 +61,13 @@ const genreMap = {
                         <span v-if="item.genre_ids?.length">
                             •
                             <span v-for="(id, idx) in item.genre_ids" :key="id">
-                                {{ genreMap[id] }}<span v-if="idx < item.genre_ids.length - 1">, </span>
+                                {{ genreMap[id as keyof typeof genreMap] }}<span v-if="idx < item.genre_ids.length - 1">, </span>
                             </span>
                         </span>
                     </div>
                     <div class="flex items-center gap-2 sm:gap-4">
                         <button
+                            @click="handleClick(item.id)"
                             class="bg-[#fe592a] hover:bg-[#ff4400] text-white font-bold px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-lg flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#fe592a] transition text-sm sm:text-base"
                             aria-label="Xem ngay" tabindex="0">
                             <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="white" stroke="white" stroke-width="2" viewBox="0 0 24 24">
@@ -88,6 +94,32 @@ const genreMap = {
             </div>
         </section>
     </UCarousel>
+
+    <div v-else class="w-full max-w-full mx-auto relative">
+        <section class="relative w-full rounded-xl overflow-hidden shadow-lg h-[220px] xs:h-[280px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10">
+            <USkeleton class="absolute inset-0 w-full h-full" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
+
+            <div class="absolute bottom-0 left-0 right-0 flex items-end px-4 sm:px-8 md:px-12 lg:px-16 pb-4 sm:pb-8 md:pb-10 lg:pb-12 z-10">
+                <div class="max-w-xl">
+                    <div class="flex items-center gap-2 sm:gap-4 mb-1 sm:mb-2">
+                        <USkeleton class="h-8 w-64" />
+                    </div>
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mb-2 sm:mb-6">
+                        <USkeleton class="h-4 w-16" />
+                        <USkeleton class="h-4 w-24" />
+                        <USkeleton class="h-4 w-20" />
+                        <USkeleton class="h-4 w-32" />
+                    </div>
+                    <div class="flex items-center gap-2 sm:gap-4">
+                        <USkeleton class="h-10 w-32" />
+                        <USkeleton class="h-10 w-10 rounded-full" />
+                        <USkeleton class="h-10 w-10 rounded-full" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </template>
 
 <style scoped>

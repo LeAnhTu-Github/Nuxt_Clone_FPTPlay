@@ -1,3 +1,10 @@
+
+<script setup lang="ts">
+import categories from '~/lib/category'
+
+
+</script>
+
 <template>
   <section class="py-6 bg-black">
     <div class="my-container mx-auto">
@@ -12,21 +19,11 @@
         class="w-full"
         v-slot="{ item }"
       >
-          <img
-            v-if="item.image"
-            :src="item.image"
-            :alt="item.name"
-            class="rounded-xl h-28 flex flex-col items-center justify-center bg-white/5 cursor-pointer transition-transform"
-            draggable="false"
-          />
+          <NuxtImg :src="item.image" :alt="item.name" class="rounded-xl h-28 flex flex-col items-center justify-center bg-white/5 cursor-pointer transition-transform" draggable="false" />
       </UCarousel>
     </div>
   </section>
 </template>
-
-<script setup>
-import categories from '~/lib/category'
-</script>
 
 <style scoped>
 

@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { Bundle } from '~/types/Bundle'
-import { defineProps, ref } from 'vue'
+import { ref } from 'vue'
 
-const props = defineProps<{
+interface BundleComparisonProps {
     bundles: Bundle[]
-}>()
+}
+const props = defineProps<BundleComparisonProps>()
 
 const data = ref<Bundle[]>(props.bundles)
 const toast = useToast()
@@ -51,7 +52,7 @@ const handleClick = (idPackage: number) => {
                     <div v-for="(bundle) in data" :key="bundle.id" class="flex flex-col w-1/5 min-h-[56px]">
                         <div class="flex flex-col w-full min-h-[56px] ">
                             <div class="h-[90px] flex items-center justify-center">
-                                <img :src="bundle.image" alt="" class="w-full h-auto max-h-[90px] object-contain md:object-cover">
+                                <NuxtImg :src="bundle.image" alt="" class="w-full h-auto max-h-[90px] object-contain md:object-cover" draggable="false" />
                             </div>
                             <div class="flex flex-col items-center justify-center w-full min-h-[56px] px-4 text-sm bg-[#0F0F0F]">
                                 <p class="text-sm sm:text-base md:text-lg">{{ bundle.price.toLocaleString('vi-VN') }}vnđ</p>

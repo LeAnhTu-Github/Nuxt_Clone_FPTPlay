@@ -1,3 +1,8 @@
+<script setup lang="ts">
+const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+</script>
 <template>
     <footer class="bg-black text-white pt-6 pb-4">
         <div class="my-container mx-auto px-4 sm:px-6 lg:px-8">
@@ -5,11 +10,11 @@
             <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
                 <div class="flex flex-col gap-4 w-full md:w-1/4 items-center md:items-start">
                     <div class="flex items-center gap-2">
-                        <img src="/images/logo.png" alt="FPT Play" class="h-10 sm:h-12" />
+                        <NuxtImg src="/images/logo.png" alt="FPT Play" class="h-10 sm:h-12" draggable="false" />
                     </div>
                     <div class="flex flex-wrap gap-4">
-                        <img src="/images/badge-bocongthuong.png" alt="Bộ Công Thương" class="h-6 sm:h-8 w-auto" />
-                        <img src="/images/dmca-protected.png" alt="DMCA Protected" class="h-6 sm:h-8 w-auto" />
+                        <NuxtImg src="/images/badge-bocongthuong.png" alt="Bộ Công Thương" class="h-6 sm:h-8 w-auto" draggable="false" />
+                        <NuxtImg src="/images/dmca-protected.png" alt="DMCA Protected" class="h-6 sm:h-8 w-auto" draggable="false" />
                     </div>
                 </div>
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full md:w-1/2 text-xs sm:text-sm text-center sm:text-left">
@@ -77,11 +82,11 @@
                     </div>
                 </div>
                 <div class="flex flex-wrap justify-center md:justify-end gap-4 mt-2 w-full md:w-1/4">
-                    <img src="/images/icon-box.png" alt="Box" class="h-5 w-5 sm:h-6 sm:w-auto" />
-                    <img src="/images/icon-tv.png" alt="TV" class="h-5 w-5 sm:h-6 sm:w-auto" />
-                    <img src="/images/icon-web.png" alt="Web" class="h-5 w-5 sm:h-6 sm:w-auto" />
-                    <img src="/images/icon-apple.png" alt="Apple" class="h-5 w-5 sm:h-6 sm:w-auto" />
-                    <img src="/images/icon-android.png" alt="Android" class="h-5 w-5 sm:h-6 sm:w-auto" />
+                    <NuxtImg src="/images/icon-box.png" alt="Box" class="h-5 w-5 sm:h-6 sm:w-auto" draggable="false" />
+                    <NuxtImg src="/images/icon-tv.png" alt="TV" class="h-5 w-5 sm:h-6 sm:w-auto" draggable="false" />
+                    <NuxtImg src="/images/icon-web.png" alt="Web" class="h-5 w-5 sm:h-6 sm:w-auto" draggable="false" />
+                    <NuxtImg src="/images/icon-apple.png" alt="Apple" class="h-5 w-5 sm:h-6 sm:w-auto" draggable="false" />
+                    <NuxtImg src="/images/icon-android.png" alt="Android" class="h-5 w-5 sm:h-6 sm:w-auto" draggable="false" />
                 </div>
             </div>
             <button class="fixed bottom-4 right-4 bg-gray-800 hover:bg-orange-500 transition-colors rounded-lg p-2 sm:p-3 shadow-lg" aria-label="Lên đầu trang" tabindex="0" @click="handleScrollTop">
@@ -93,8 +98,3 @@
     </footer>
 </template>
 
-<script setup>
-const handleScrollTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-}
-</script>

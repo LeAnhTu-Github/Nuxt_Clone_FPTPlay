@@ -1,3 +1,6 @@
+<script setup lang="ts">
+
+</script>
 <template>
     <div class="bg-[#181818] rounded-2xl shadow-2xl p-10 sm:p-16 w-[90%] sm:w-[500px] h-auto sm:h-[450px]">
         <h1 class="text-[30px] font-bold text-white text-left mb-10">Đăng nhập hoặc đăng ký</h1>
@@ -20,9 +23,5 @@
         </div>
     </div>
 </template>
-
-<script setup>
-
-</script>
 
 <style scoped></style>

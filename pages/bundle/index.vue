@@ -30,11 +30,11 @@ const bundles = ref<Bundle[]>(bundle)
                     Các nền tảng hỗ trợ
                 </p>
                 <div class="flex justify-start gap-4 mt-2 w-full md:w-1/4">
-                    <img src="/images/icon-box.png" alt="Box" class="h-5 w-5 sm:h-6 sm:w-auto" />
-                    <img src="/images/icon-tv.png" alt="TV" class="h-5 w-5 sm:h-6 sm:w-auto" />
-                    <img src="/images/icon-web.png" alt="Web" class="h-5 w-5 sm:h-6 sm:w-auto" />
-                    <img src="/images/icon-apple.png" alt="Apple" class="h-5 w-5 sm:h-6 sm:w-auto" />
-                    <img src="/images/icon-android.png" alt="Android" class="h-5 w-5 sm:h-6 sm:w-auto" />
+                    <NuxtImg src="/images/icon-box.png" alt="Box" class="h-5 w-5 sm:h-6 sm:w-auto" draggable="false" />
+                    <NuxtImg src="/images/icon-tv.png" alt="TV" class="h-5 w-5 sm:h-6 sm:w-auto" draggable="false" />
+                    <NuxtImg src="/images/icon-web.png" alt="Web" class="h-5 w-5 sm:h-6 sm:w-auto" draggable="false" />
+                    <NuxtImg src="/images/icon-apple.png" alt="Apple" class="h-5 w-5 sm:h-6 sm:w-auto" draggable="false" />
+                    <NuxtImg src="/images/icon-android.png" alt="Android" class="h-5 w-5 sm:h-6 sm:w-auto" draggable="false" />
                 </div>
             </div>
             <NuxtLink
