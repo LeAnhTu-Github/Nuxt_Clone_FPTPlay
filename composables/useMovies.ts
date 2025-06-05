@@ -19,7 +19,7 @@ export const useMovies = () => {
   const fetchPopularMovies = async () => {
     loading.value = true
     try {
-      await delay(5000)
+      await delay(2000)
       const response = await fetch(`${config.public.tmdbApiBaseUrl}/movie/popular?page=1&api_key=${config.public.tmdbApiKey}`)
       const data = await response.json()
       movies.value = data as MovieResponse
@@ -33,7 +33,7 @@ export const useMovies = () => {
   const fetchMovieById = async (id: string) => {
     loading.value = true
     try {
-      await delay(5000)
+      await delay(2000)
       const response = await fetch(`${config.public.tmdbApiBaseUrl}/movie/${id}?api_key=${config.public.tmdbApiKey}`)
       const data = await response.json()
       movie.value = data as Movie

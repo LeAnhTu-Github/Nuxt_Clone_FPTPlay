@@ -46,10 +46,10 @@ watch(movie, (newMovie) => {
             <div class="py-6 bg-black grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="md:col-span-2 space-y-4">
                     <div class="space-y-2">
-                        <USkeleton class="h-8 w-3/4" />
                         <USkeleton class="h-6 w-1/2" />
                     </div>
                     <div class="flex items-center gap-2">
+                        <USkeleton class="h-8 w-32" />
                         <USkeleton class="h-8 w-32" />
                     </div>
 
@@ -60,10 +60,11 @@ watch(movie, (newMovie) => {
                         <USkeleton class="h-5 w-16" />
                     </div>
 
-                    <div class="space-y-2">
-                        <USkeleton class="h-5 w-full" />
-                        <USkeleton class="h-5 w-full" />
-                        <USkeleton class="h-5 w-3/4" />
+                    <div class="space-y-2 ">
+                        <USkeleton class="h-8 w-1/2" />
+                    </div>
+                    <div class="space-y-2 ">
+                        <USkeleton class="h-12 w-3/4" />
                     </div>
                 </div>
 
