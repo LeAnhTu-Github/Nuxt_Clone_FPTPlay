@@ -22,7 +22,7 @@ const handleClick = (id: number) => {
             <h2 class="text-2xl text-white font-bold mb-8">{{ title }}</h2>
             <UCarousel :items="props.movies" loop :show-dots="false" :arrows="false" :auto-scroll="false" :scroll-snap="true"
                 :ui="{ item: 'basis-2/3 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 snap-start'  }" class="w-full" v-slot="{ item }">
-                <div class="relative group">
+                <div class="relative group " @click="handleClick(item.id)">
                     <span
                         class="absolute left-2 top-2 z-10 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg px-2 py-1 text-white font-bold text-sm select-none"
                         aria-label="Phim mới"
@@ -37,7 +37,7 @@ const handleClick = (id: number) => {
                     <span class="block mt-2 text-sm tracking-wide text-white line-clamp-2">{{ item.title }}</span>
                     <div
                         class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <button class="text-white p-2 rounded-full" aria-label="Xem ngay" tabindex="0" @click="handleClick(item.id)">
+                        <button class="text-white p-2 rounded-full" aria-label="Xem ngay" tabindex="0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
