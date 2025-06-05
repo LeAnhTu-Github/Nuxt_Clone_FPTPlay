@@ -13,10 +13,10 @@ const props = defineProps<CategoryProps>()
     <div class="my-container mx-auto">
       <div v-if="props.loading">
         <h2 class="text-2xl text-white font-bold mb-6">
-          <USkeleton class="h-8 w-3/4 mb-6" />
+          <USkeleton class="h-8 w-3/4 mb-6 bg-gray-800" />
         </h2>
         <h2 class="text-2xl text-white font-bold mb-6">
-          <USkeleton class="h-8 w-3/4 mb-6" />
+          <USkeleton class="h-8 w-3/4 mb-6 bg-gray-800" />
         </h2>
         <UCarousel
           :items="[1, 2, 3, 4, 5]"
@@ -29,7 +29,7 @@ const props = defineProps<CategoryProps>()
           v-slot="{ item }"
         >
           <div class="rounded-xl h-28 bg-white/5">
-            <USkeleton class="w-full h-full rounded-xl" />
+            <USkeleton class="w-full h-full rounded-xl bg-gray-800" />
           </div>
         </UCarousel>
       </div>

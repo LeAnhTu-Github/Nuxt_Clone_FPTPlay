@@ -97,24 +97,24 @@ const genreMap = {
 
     <div v-else class="w-full max-w-full mx-auto relative">
         <section class="relative w-full rounded-xl overflow-hidden shadow-lg h-[220px] xs:h-[280px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10">
-            <USkeleton class="absolute inset-0 w-full h-full" />
+            <USkeleton class="absolute inset-0 w-full h-full bg-gray-800" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
 
             <div class="absolute bottom-0 left-0 right-0 flex items-end px-4 sm:px-8 md:px-12 lg:px-16 pb-4 sm:pb-8 md:pb-10 lg:pb-12 z-10">
                 <div class="max-w-xl">
                     <div class="flex items-center gap-2 sm:gap-4 mb-1 sm:mb-2">
-                        <USkeleton class="h-8 w-64" />
+                        <USkeleton class="h-8 w-64 bg-gray-800"/>
                     </div>
                     <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mb-2 sm:mb-6">
-                        <USkeleton class="h-4 w-16" />
-                        <USkeleton class="h-4 w-24" />
-                        <USkeleton class="h-4 w-20" />
-                        <USkeleton class="h-4 w-32" />
+                        <USkeleton class="h-4 w-16 bg-gray-800" />
+                        <USkeleton class="h-4 w-24 bg-gray-800" />
+                        <USkeleton class="h-4 w-20 bg-gray-800" />
+                        <USkeleton class="h-4 w-32 bg-gray-800" />
                     </div>
                     <div class="flex items-center gap-2 sm:gap-4">
-                        <USkeleton class="h-10 w-32" />
-                        <USkeleton class="h-10 w-10 rounded-full" />
-                        <USkeleton class="h-10 w-10 rounded-full" />
+                        <USkeleton class="h-10 w-32 bg-gray-800" />
+                        <USkeleton class="h-10 w-10 rounded-full bg-gray-800" />
+                        <USkeleton class="h-10 w-10 rounded-full bg-gray-800" />
                     </div>
                 </div>
             </div>

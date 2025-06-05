@@ -21,10 +21,9 @@ const handleClick = (id: number) => {
 <template>
   <section class="py-8 bg-black">
     <div class="my-container mx-auto">
-      <!-- Skeleton Loading State -->
       <div v-if="props.loading">
         <h2 class="text-2xl text-white font-bold mb-6">
-          <USkeleton class="h-8 w-3/4 mb-6" />
+          <USkeleton class="h-8 w-3/4 mb-6 bg-gray-800" />
         </h2>
         <UCarousel 
           :items="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" 
@@ -51,15 +50,13 @@ const handleClick = (id: number) => {
             </div>
             <div class="flex items-center h-full relative z-10 -ml-10 md:-ml-16">
               <div class="w-[120px] h-[170px] rounded-xl overflow-hidden shadow-lg absolute top-2 left-6">
-                <USkeleton class="w-full h-full animate-pulse" />
+                <USkeleton class="w-full h-full bg-gray-800 rounded-xl" />
               </div>
             </div>
           </div>
         </UCarousel>
-      </div>
-
-      <!-- Actual Content - Only show when loading is complete -->
-      <template v-else>
+      </div>  
+      <template v-else-if="!props.loading && props.movies.length">
         <h2 class="text-2xl text-white font-bold mb-6">
           Top 10 phim bộ xu hướng
         </h2>

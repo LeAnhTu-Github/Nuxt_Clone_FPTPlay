@@ -1,6 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  vite:{
+    build:{
+      sourcemap: false,
+    }
+  },
   compatibilityDate: '2025-05-15',
+  routeRules: {
+    '/': {
+      ssr: true,
+    },
+    '/video/**': {
+      ssr: true,
+    },
+  },
   css: ['~/assets/styles/main.css'],
   // devtools: { enabled: true },
   modules: [
@@ -10,7 +23,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/image'
   ],
-
   app: {
     head: {
       title: 'FPT Play - Xem phim, truyền hình và thể thao trực tuyến',

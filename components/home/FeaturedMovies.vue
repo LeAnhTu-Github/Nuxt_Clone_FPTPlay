@@ -25,7 +25,7 @@ const handleClick = (id: number) => {
       
       <div v-if="props.loading" class="w-full">
         <h2 class="text-xl sm:text-2xl md:text-3xl text-white font-bold mb-6 md:mb-8">
-          <USkeleton class="h-8 w-3/4 mb-6" />
+          <USkeleton class="h-8 w-3/4 mb-6 bg-gray-800" />
         </h2>
         <UCarousel
           :items="[1, 2, 3, 4, 5]"
@@ -42,10 +42,10 @@ const handleClick = (id: number) => {
         >
           <div class="relative group flex flex-col items-center px-2">
             <div class="aspect-[2/3] w-full rounded-lg overflow-hidden">
-              <USkeleton class="w-full h-full" />
+              <USkeleton class="w-full h-full bg-gray-800" />
             </div>
             <div class="w-full mt-2">
-              <USkeleton class="h-4 w-1/2 mx-auto mt-1" />
+              <USkeleton class="h-4 w-1/2 mx-auto mt-1 bg-gray-800" />
             </div>
           </div>
         </UCarousel>

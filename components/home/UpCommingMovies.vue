@@ -30,7 +30,7 @@
           
           <div v-if="props.loading">
             <h2 class="text-2xl text-white font-bold mb-6">
-              <USkeleton class="h-8 w-3/4 mb-6" />
+              <USkeleton class="h-8 w-3/4 mb-6 bg-gray-800" />
             </h2>
             <UCarousel
               :items="[1, 2]"
@@ -44,17 +44,17 @@
               v-slot="{ item }"
             >
               <div class="relative h-80 md:h-[400px] bg-neutral-900 rounded-xl overflow-hidden shadow-lg">
-                <USkeleton class="absolute inset-0 w-full h-full" />
+                <USkeleton class="absolute inset-0 w-full h-full bg-gray-800" />
                 
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
                 
                 <div class="absolute bottom-0 left-0 right-0 flex flex-col gap-2 px-6 pb-6 z-10">
-                  <USkeleton class="h-8 w-3/4 mb-1" />
+                  <USkeleton class="h-8 w-3/4 mb-1 bg-gray-800" />
                   
-                  <USkeleton class="h-4 w-48 mb-1" />
+                  <USkeleton class="h-4 w-48 mb-1 bg-gray-800" />
 
                   <div class="flex lg:hidden mt-2">
-                    <USkeleton class="h-10 w-[120px] rounded-lg" />
+                    <USkeleton class="h-10 w-[120px] rounded-lg bg-gray-800" />
                   </div>
                 </div>
               </div>
