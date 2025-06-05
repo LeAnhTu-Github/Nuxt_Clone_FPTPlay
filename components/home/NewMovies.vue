@@ -6,10 +6,10 @@ const { getImageUrl } = useTmdbImage()
 interface NewMoviesProps {
     movies: Movie[]
     title: string
+    loading: boolean
 }
 
 const props = defineProps<NewMoviesProps>()
-
 
 const router = useRouter()
 const handleClick = (id: number) => {
@@ -19,10 +19,51 @@ const handleClick = (id: number) => {
 <template>
     <section class="py-6 bg-black">
         <div class="my-container mx-auto">
-            <h2 class="text-2xl text-white font-bold mb-8">{{ title }}</h2>
-            <UCarousel :items="props.movies" loop :show-dots="false" :arrows="false" :auto-scroll="false" :scroll-snap="true"
-                :ui="{ item: 'basis-2/3 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 snap-start'  }" class="w-full" v-slot="{ item }">
-                <div class="relative group " @click="handleClick(item.id)">
+            <template v-if="!props.loading && props.movies.length">
+                <h2 class="text-2xl text-white font-bold mb-8">{{ title }}</h2>
+            </template>
+            <div v-if="props.loading">
+                <h2 class="text-2xl text-white font-bold mb-8">
+                    <USkeleton class="h-8 w-1/2 mb-6" />
+                </h2>
+                <UCarousel 
+                    :items="[1, 2, 3, 4, 5]" 
+                    loop 
+                    :show-dots="false" 
+                    :arrows="false" 
+                    :auto-scroll="false" 
+                    :scroll-snap="true"
+                    :ui="{ item: 'basis-2/3 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 snap-start' }" 
+                    class="w-full" 
+                    v-slot="{ item }"
+                >
+                    <div class="relative group">
+                        <USkeleton class="absolute left-2 top-2 z-10 h-7 w-16 rounded-lg" />
+                        
+                        <div class="aspect-[16/9] w-full rounded-lg overflow-hidden">
+                            <USkeleton class="w-full h-full" />
+                        </div>
+                        
+                        <div class="mt-2">
+                            <USkeleton class="h-4 w-1/2 mt-1" />
+                        </div>
+                    </div>
+                </UCarousel>
+            </div>
+
+            <UCarousel 
+                v-else
+                :items="props.movies" 
+                loop 
+                :show-dots="false" 
+                :arrows="false" 
+                :auto-scroll="false" 
+                :scroll-snap="true"
+                :ui="{ item: 'basis-2/3 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 snap-start' }" 
+                class="w-full" 
+                v-slot="{ item }"
+            >
+                <div class="relative group" @click="handleClick(item.id)">
                     <span
                         class="absolute left-2 top-2 z-10 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg px-2 py-1 text-white font-bold text-sm select-none"
                         aria-label="Phim mới"
@@ -30,7 +71,9 @@ const handleClick = (id: number) => {
                         MỚI
                     </span>
                     <div class="aspect-[16/9] w-full rounded-lg overflow-hidden">
-                        <NuxtImg :src="getImageUrl(item.backdrop_path || item.poster_path, 'w500')" :alt="item.title"
+                        <NuxtImg 
+                            :src="getImageUrl(item.backdrop_path || item.poster_path, 'w500')" 
+                            :alt="item.title"
                             class="w-full h-full object-cover"
                         />
                     </div>

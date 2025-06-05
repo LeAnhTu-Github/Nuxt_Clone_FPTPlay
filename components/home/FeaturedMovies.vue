@@ -19,9 +19,14 @@ const handleClick = (id: number) => {
 <template>
   <section class="py-8 md:py-12 bg-black">
     <div class="my-container mx-auto">
-      <h2 class="text-xl sm:text-2xl md:text-3xl text-white font-bold mb-6 md:mb-8">{{ title }}</h2>
+      <template v-if="!props.loading && props.movies.length">
+        <h2 class="text-xl sm:text-2xl md:text-3xl text-white font-bold mb-6 md:mb-8">{{ title }}</h2>
+      </template>
       
-      <div v-if="loading" class="w-full">
+      <div v-if="props.loading" class="w-full">
+        <h2 class="text-xl sm:text-2xl md:text-3xl text-white font-bold mb-6 md:mb-8">
+          <USkeleton class="h-8 w-3/4 mb-6" />
+        </h2>
         <UCarousel
           :items="[1, 2, 3, 4, 5]"
           loop
@@ -40,7 +45,6 @@ const handleClick = (id: number) => {
               <USkeleton class="w-full h-full" />
             </div>
             <div class="w-full mt-2">
-              <USkeleton class="h-4 w-3/4 mx-auto" />
               <USkeleton class="h-4 w-1/2 mx-auto mt-1" />
             </div>
           </div>

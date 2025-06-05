@@ -32,12 +32,12 @@ const rankingMovies = computed<Movie[]>(() =>
 <template>
   <div>
     <Banner :movies="bannerMovies" :loading="loading" />
-    <div v-if="movies.results.length">
+    <!-- <div v-if="movies.results.length"> -->
       <FeaturedMovies :movies="movies.results" title="Cày phim hay mỗi ngày" :loading="loading" />
-      <NewMovies :movies="newMovies" title="Mới ra mắt" />
-      <Category />
-      <Ranking :movies="rankingMovies" />
-      <UpCommingMovies :movies="newMovies" title="Phim sắp ra mắt" />
-    </div>
+      <NewMovies :movies="newMovies" title="Mới ra mắt" :loading="loading" />
+      <Category :loading="loading" />
+      <Ranking :movies="rankingMovies" :loading="loading" />
+      <UpCommingMovies :movies="newMovies" title="Phim sắp ra mắt" :loading="loading" />
+    <!-- </div> -->
   </div>
 </template>

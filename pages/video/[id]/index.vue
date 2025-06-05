@@ -181,29 +181,7 @@ watch(movie, (newMovie) => {
                 </div>
             </div>
         </div>
-
-        <div v-if="loading">
-            <div class="py-8">
-                <USkeleton class="h-8 w-48 mb-6" />
-                <UCarousel :items="[1, 2, 3, 4, 5]" loop :show-dots="false" :arrows="false" :auto-scroll="false"
-                    :scroll-snap="true" :ui="{ item: 'basis-2/3 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 snap-start' }"
-                    class="w-full" v-slot="{ item }">
-                    <div class="relative group">
-                        <USkeleton class="absolute left-2 top-2 z-10 h-7 w-16 rounded-lg" />
-
-                        <div class="aspect-[16/9] w-full rounded-lg overflow-hidden">
-                            <USkeleton class="w-full h-full" />
-                        </div>
-
-                        <div class="mt-2">
-                            <!-- <USkeleton class="h-5 w-3/4" /> -->
-                            <USkeleton class="h-5 w-1/2 mt-1" />
-                        </div>
-                    </div>
-                </UCarousel>
-            </div>
-        </div>
-        <NewMovies v-else-if="movies.results.length && !loading" :movies="movies.results" title="Nội dung liên quan" />
+        <NewMovies :loading="loading" :movies="movies.results" title="Nội dung liên quan" />
 
     </div>
 </template>
